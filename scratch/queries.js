@@ -31,9 +31,17 @@ mongoose.connect(MONGODB_URI)
   //     })
   //     .catch(console.error);
   // })
-  .then(() => {
-    
-  })
+  // .then(() => {
+  //   const newNote = {
+  //     title: 'My Test Note',
+  //     content: 'TEST TEST TEST'
+  //   };
+  //   return Note.create(newNote)
+  //     .then(result => {
+  //       console.log(result);
+  //     })
+  //     .catch(console.error);
+  // })
   .then(() => {
     return mongoose.disconnect()
       .then(() => {
