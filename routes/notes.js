@@ -1,17 +1,28 @@
 'use strict';
 
 const express = require('express');
+const mongoose = require('mongoose');
 const router = express.Router();
+
+mongoose.Promise = global.Promise;
+const {Note} = require('../models/note');
 
 /* ========== GET/READ ALL ITEM ========== */
 router.get('/', (req, res, next) => {
+  Note.find()
+    .then(notes => {
+      res.json(notes);
+    })
+    .catch(err => {
+      console.error(err);
+    })
 
-  console.log('Get All Notes');
-  res.json([
-    { id: 1, title: 'Temp 1' },
-    { id: 2, title: 'Temp 2' },
-    { id: 3, title: 'Temp 3' }
-  ]);
+  // console.log('Get All Notes');
+  // res.json([
+  //   { id: 1, title: 'Temp 1' },
+  //   { id: 2, title: 'Temp 2' },
+  //   { id: 3, title: 'Temp 3' }
+  // ]);
 
 });
 

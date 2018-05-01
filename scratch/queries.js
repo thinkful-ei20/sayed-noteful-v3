@@ -9,7 +9,7 @@ const {Note} = require('../models/note');
 mongoose.connect(MONGODB_URI)
   // .then(() => {
   //   const searchTerm = 'lady gaga';
-  //   let filter = {};
+  // let filter = {};
 
   //   if (searchTerm) {
   //     const re = new RegExp(searchTerm, 'i');
@@ -41,6 +41,23 @@ mongoose.connect(MONGODB_URI)
   //       console.log(result);
   //     })
   //     .catch(console.error);
+  // })
+  // .then(() => {
+  //   const noteId = '5ae8cc1bca88a13a848f7065';
+  //   const updateNote = {title: 'Updated Title'};
+  //   return Note.findByIdAndUpdate(noteId, {$set: updateNote}, {new: true, upsert: true})
+  //     .then(result => {
+  //       console.log(result);
+  //     })
+  //     .catch(console.error);
+  // })
+  // .then(() => {
+  //   const noteId = '5ae8cc1bca88a13a848f7065';
+  //   return Note.findByIdAndRemove(noteId)
+  //     .then(result => {
+  //       console.log(result);
+  //     })
+  //     .catch(console.err);
   // })
   .then(() => {
     return mongoose.disconnect()
