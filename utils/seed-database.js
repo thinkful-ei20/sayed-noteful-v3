@@ -1,7 +1,9 @@
+'use strict';
+
 const mongoose = require('mongoose');
 
 const { MONGODB_URI } = require('../config');
-const Note = require('../models/note');
+const {Note} = require('../models/note');
 
 const seedNotes = require('../db/seed/notes');
 
