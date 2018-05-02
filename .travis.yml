@@ -1,10 +1,11 @@
 language: node_js
 node_js: node
-
-# deploy:
-#     provider: heroku
-#     api_key:
-#       secure: [YOUR-API-KEY]
-#     app: [YOUR-APP-NAME]
-#     on:
-#       repo: [YOUR-APP-REPO]
+services:
+  - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: gGPudwVv4rLuTGs7/ZuZ0XkFcngwkCFKJ1JIy6ghUZ8YToSLpzMzwabfsRxtIPWWOjA5BrJyN9sT3OPftFyyZdqtbXF9EZ98bB80fe/AA4bVk78LxftALRc6t4CdAMR1C1gt7rGAwMmcY6TSPBbMaIqAFUxBxIZZBXIesOTxZF6aRbxBBvvejPdEN8WHKwxp3fgfs5AbruOljJwgr6Poh9rgtOis2A0zVh4JAA6Whxmgkhdl2neXZrwKBtIFQHEvvhQF5r4k8205jfZjt1fJrB1wWYbwUYfyjrBs4q3PSq9919tvu9A4P/c6yvPIE4G1CfrHE9sL6/88p0SkgIAg++byVz6uMlGvKlK4i7fruC8LBCkfVzzWv0gtpHZmAnMzKT00gJhSucbm0KlNEkNMPqRRAi4lJLTLoufB0S2PVfVx5rTka1TPhWTcY7y2ZZmzvWeph2HqhBvBhSisxlq4wUis82TR0QuCclYhAEP+xwxV8uwm1G21tiiqDWVSuxMfj2gkfiJRbVUlaPW9dvXqevpY0QzsGsvMO6MRrG0DsYWAcODzayJp8q/RN4qahiHEEOgcXV2nk/QzyRqZDaFb35vyMLkS3FkWCfnz5yygc/PVjKyMd2K0UrHhrTQX6MIkFmWz8u+qTVrYcRJA1kbX28q4X1VcKezhNinYqhsIujI=
+  app: sayed-noteful-v3
+  on:
+    repo: thinkful-ei20/sayed-noteful-v3
