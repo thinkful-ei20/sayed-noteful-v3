@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const { TEST_MONGODB_URI } = require('../config');
 
-const Folder = require('../models/folder');
+const { Folder } = require('../models/folder');
 const seedFolders = require('../db/seed/folders');
 
 
@@ -15,6 +15,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('Noteful API - Folders', function () {
+  this.timeout(5000);
   before(function () {
     return mongoose.connect(TEST_MONGODB_URI)
       .then(() => mongoose.connection.db.dropDatabase());
@@ -104,7 +105,7 @@ describe('Noteful API - Folders', function () {
 
     it('should create and return a new item when provided valid data', function () {
       const newItem = {
-        'name': 'testFolder',
+        'name': 'newFolder',
       };
       let body;
       return chai.request(app)
@@ -127,7 +128,7 @@ describe('Noteful API - Folders', function () {
 
     it('should return an error when missing "name" field', function () {
       const newItem = {
-        'foo': 'bar'
+        'fadsf': 'adggdas'
       };
 
       return chai.request(app)
@@ -162,7 +163,7 @@ describe('Noteful API - Folders', function () {
 
     it('should update the folder', function () {
       const updateItem = {
-        'name': 'Updated Name'
+        'name': 'Updated'
       };
       let data;
       return Folder.findOne().select('id name')
@@ -186,9 +187,9 @@ describe('Noteful API - Folders', function () {
 
     it('should respond with a 400 for an invalid ID', function () {
       const updateItem = {
-        'name': 'Blah'
+        'name': 'testtest'
       };
-      const badId = '99-99-99';
+      const badId = 123;
 
       return chai.request(app)
         .put(`/api/folders/${badId}`)
@@ -199,22 +200,9 @@ describe('Noteful API - Folders', function () {
         });
     });
 
-    it('should respond with a 404 for an ID that does not exist', function () {
-      const updateItem = {
-        'name': 'Blah'
-      };
-
-      return chai.request(app)
-        .put('/api/folders/AAAAAAAAAAAAAAAAAAAAAAAA')
-        .send(updateItem)
-        .then(res => {
-          expect(res).to.have.status(404);
-        });
-    });
-
     it('should return an error when missing "name" field', function () {
       const updateItem = {
-        'foo': 'bar'
+        'asdf': 'testtest'
       };
 
       return chai.request(app)
@@ -224,7 +212,7 @@ describe('Noteful API - Folders', function () {
           expect(res).to.have.status(400);
           expect(res).to.be.json;
           expect(res.body).to.be.a('object');
-          expect(res.body.message).to.equal('Missing `name` in request body');
+          expect(res.body.message).to.equal('Missing `title` in request body');
         });
     });
 
