@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const noteSchema = new Schema({
   title: {type: String, required: true},
   content: {type: String},
-  folderId: { type: mongoose.Schema.Types.ObjectId, ref: 'Folder' }
+  folderId: { type: mongoose.Schema.Types.ObjectId, ref: 'Folder' },
+  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }]
 }, 
 {timestamps: true}
 );
